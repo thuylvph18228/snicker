@@ -12,50 +12,13 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public interface BrandService {
-    List<Brand> findAll();
+    public List<Brand> findAll();
 
-    List<Brand> findAll(Sort sort);
+    public Brand findById(Integer id) ;
 
-    List<Brand> findAllById(Iterable<Long> longs);
+    public Brand create(Brand product) ;
 
-    <S extends Brand> List<S> saveAll(Iterable<S> entities);
+    public Brand update(Brand product) ;
 
-    void flush();
-
-    <S extends Brand> S saveAndFlush(S entity);
-
-    <S extends Brand> List<S> saveAllAndFlush(Iterable<S> entities);
-
-    @Deprecated
-    void deleteInBatch(Iterable<Brand> entities);
-
-    void deleteAllInBatch(Iterable<Brand> entities);
-
-    void deleteAllByIdInBatch(Iterable<Long> longs);
-
-    void deleteAllInBatch();
-
-    @Deprecated
-    Brand getOne(Long aLong);
-
-    @Deprecated
-    Brand getById(Long aLong);
-
-    Brand getReferenceById(Long aLong);
-
-    <S extends Brand> List<S> findAll(Example<S> example);
-
-    <S extends Brand> List<S> findAll(Example<S> example, Sort sort);
-
-    Page<Brand> findAll(Pageable pageable);
-
-    <S extends Brand> Optional<S> findOne(Example<S> example);
-
-    <S extends Brand> Page<S> findAll(Example<S> example, Pageable pageable);
-
-    <S extends Brand> long count(Example<S> example);
-
-    <S extends Brand> boolean exists(Example<S> example);
-
-    <S extends Brand, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+    public void delete(Integer id) ;
 }

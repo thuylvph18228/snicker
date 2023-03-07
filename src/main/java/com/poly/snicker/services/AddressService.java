@@ -12,50 +12,13 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public interface AddressService {
-    List<Address> findAll();
+    public List<Address> findAll();
 
-    List<Address> findAll(Sort sort);
+    public Address findById(Integer id) ;
 
-    List<Address> findAllById(Iterable<Long> longs);
+    public Address create(Address product) ;
 
-    <S extends Address> List<S> saveAll(Iterable<S> entities);
+    public Address update(Address product) ;
 
-    void flush();
-
-    <S extends Address> S saveAndFlush(S entity);
-
-    <S extends Address> List<S> saveAllAndFlush(Iterable<S> entities);
-
-    @Deprecated
-    void deleteInBatch(Iterable<Address> entities);
-
-    void deleteAllInBatch(Iterable<Address> entities);
-
-    void deleteAllByIdInBatch(Iterable<Long> longs);
-
-    void deleteAllInBatch();
-
-    @Deprecated
-    Address getOne(Long aLong);
-
-    @Deprecated
-    Address getById(Long aLong);
-
-    Address getReferenceById(Long aLong);
-
-    <S extends Address> List<S> findAll(Example<S> example);
-
-    <S extends Address> List<S> findAll(Example<S> example, Sort sort);
-
-    Page<Address> findAll(Pageable pageable);
-
-    <S extends Address> Optional<S> findOne(Example<S> example);
-
-    <S extends Address> Page<S> findAll(Example<S> example, Pageable pageable);
-
-    <S extends Address> long count(Example<S> example);
-
-    <S extends Address> boolean exists(Example<S> example);
-
-    <S extends Address, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+    public void delete(Integer id) ;
 }

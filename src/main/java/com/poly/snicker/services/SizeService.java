@@ -12,50 +12,13 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public interface SizeService {
-    List<Sizes> findAll();
+    public List<Sizes> findAll();
 
-    List<Sizes> findAll(Sort sort);
+    public Sizes findById(Integer id) ;
 
-    List<Sizes> findAllById(Iterable<Long> longs);
+    public Sizes create(Sizes product) ;
 
-    <S extends Sizes> List<S> saveAll(Iterable<S> entities);
+    public Sizes update(Sizes product) ;
 
-    void flush();
-
-    <S extends Sizes> S saveAndFlush(S entity);
-
-    <S extends Sizes> List<S> saveAllAndFlush(Iterable<S> entities);
-
-    @Deprecated
-    void deleteInBatch(Iterable<Sizes> entities);
-
-    void deleteAllInBatch(Iterable<Sizes> entities);
-
-    void deleteAllByIdInBatch(Iterable<Long> longs);
-
-    void deleteAllInBatch();
-
-    @Deprecated
-    Sizes getOne(Long aLong);
-
-    @Deprecated
-    Sizes getById(Long aLong);
-
-    Sizes getReferenceById(Long aLong);
-
-    <S extends Sizes> List<S> findAll(Example<S> example);
-
-    <S extends Sizes> List<S> findAll(Example<S> example, Sort sort);
-
-    Page<Sizes> findAll(Pageable pageable);
-
-    <S extends Sizes> Optional<S> findOne(Example<S> example);
-
-    <S extends Sizes> Page<S> findAll(Example<S> example, Pageable pageable);
-
-    <S extends Sizes> long count(Example<S> example);
-
-    <S extends Sizes> boolean exists(Example<S> example);
-
-    <S extends Sizes, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+    public void delete(Integer id) ;
 }
